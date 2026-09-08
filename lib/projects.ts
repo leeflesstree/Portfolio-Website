@@ -13,63 +13,48 @@ export type Project = {
   demo?: string;
 };
 
-/** Dummy content — replace each entry with a real project. */
+/** Projects shown across the portfolio. */
 export const projects: Project[] = [
   {
-    slug: "project-one",
-    title: "Project One",
+    slug: "rollroute",
+    title: "RollRoute",
     summary:
-      "A short description of what this project does, the problem it solves, and who it is for.",
+      "An accessible navigation app that makes curb cuts, step-free entrances, elevator outages, and surface conditions part of route planning.",
     body: [
-      "Describe the problem you set out to solve and why it mattered.",
-      "Walk through the approach you took, the tradeoffs you weighed, and anything you would do differently now.",
+      "RollRoute is a wheelchair-friendly navigation app built around a simple premise: the shortest route is not always an accessible one. It treats real mobility constraints as first-class routing data rather than an afterthought.",
+      "The concept combines accessible route planning with crowdsourced accessibility pins, venue snapshots, and a Scout Mode heatmap that helps surface both well-documented and under-mapped areas.",
     ],
-    stack: ["Next.js", "TypeScript", "Tailwind"],
+    stack: ["Accessible Navigation", "Routing", "Community Mapping"],
     year: 2026,
     featured: true,
-    repo: "https://github.com/leeflesstree/project-one",
-    demo: "https://example.com/project-one",
   },
   {
-    slug: "project-two",
-    title: "Project Two",
+    slug: "facial-emotion-recognition",
+    title: "Facial Emotion Recognition",
     summary:
-      "A short description of what this project does, the problem it solves, and who it is for.",
+      "A machine-learning project that recognizes emotions from facial-landmark geometry, comparing interpretable models with a neural-network benchmark.",
     body: [
-      "Describe the problem you set out to solve and why it mattered.",
-      "Walk through the approach you took, the tradeoffs you weighed, and anything you would do differently now.",
+      "Built with a three-person team, this project evaluates whether lightweight, landmark-based features can classify seven facial emotions without relying on raw-image classification or deep CNNs. The dataset contains more than 35,000 labeled 48×48 grayscale images.",
+      "I implemented model code as well as facial-landmark extraction, feature engineering, and data cleanup. The pipeline detects faces, derives distances, angles, and ratios from 68 landmarks, standardizes the resulting features, and evaluates Logistic Regression, Decision Tree, and MLP models with cross-validation and classification metrics.",
     ],
-    stack: ["React", "Node.js", "Postgres"],
+    stack: ["Python", "scikit-learn", "OpenCV", "face_recognition"],
     year: 2025,
     featured: true,
-    repo: "https://github.com/leeflesstree/project-two",
+    repo: "https://github.com/leeflesstree/cs471Final",
   },
   {
-    slug: "project-three",
-    title: "Project Three",
+    slug: "portfolio-website",
+    title: "Personal Portfolio",
     summary:
-      "A short description of what this project does, the problem it solves, and who it is for.",
+      "A responsive personal site for presenting selected work, experience, skills, and direct contact information.",
     body: [
-      "Describe the problem you set out to solve and why it mattered.",
-      "Walk through the approach you took, the tradeoffs you weighed, and anything you would do differently now.",
+      "I built this portfolio as a focused way to present my work and make the context behind each project easy to explore. It includes a landing page, a complete project list, and statically generated detail pages for individual projects.",
+      "The site is built with Next.js App Router, React, TypeScript, and Tailwind CSS. Project and site copy live in typed data modules, which keeps content updates separate from the page components that render them.",
     ],
-    stack: ["Python", "FastAPI", "Docker"],
-    year: 2025,
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    year: 2026,
     featured: true,
-    repo: "https://github.com/leeflesstree/project-three",
-  },
-  {
-    slug: "project-four",
-    title: "Project Four",
-    summary:
-      "An older project, listed on the projects page but not featured on the landing page.",
-    body: [
-      "Describe the problem you set out to solve and why it mattered.",
-      "Walk through the approach you took, the tradeoffs you weighed, and anything you would do differently now.",
-    ],
-    stack: ["JavaScript", "Express"],
-    year: 2024,
-    featured: false,
+    repo: "https://github.com/leeflesstree/Portfolio-Website",
   },
 ];
 

@@ -12,8 +12,8 @@ export const site = {
   about:
     "A couple of sentences about your background, what you enjoy working on, and what you are looking for next. Replace this with your own story.",
   email: "nicholas.alexander.us@gmail.com",
-  /** Used for metadata; update once the site is deployed. */
-  url: "https://example.com",
+  /** Used for metadata and canonical URLs. */
+  url: "https://nicholas-alexander-portfolio.frosty-skunk-0208.chatgpt.site",
   skills: [
     "TypeScript",
     "React",
