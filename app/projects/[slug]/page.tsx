@@ -1,91 +1,53 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ProjectPreview } from "@/components/project-preview";
 import { getAllProjects, getProject } from "@/lib/projects";
 
 export function generateStaticParams() {
-  return getAllProjects().map((project) => ({ slug: project.slug }));
+  return getAllProjects().map(project => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps<"/projects/[slug]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-
-  if (!project) {
-    return { title: "Project not found" };
-  }
-
-  return { title: project.title, description: project.summary };
+  return project ? { title: project.title, description: project.summary } : { title: "Project not found" };
 }
 
-export default async function ProjectPage({
-  params,
-}: PageProps<"/projects/[slug]">) {
+export default async function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   const { slug } = await params;
   const project = getProject(slug);
-
-  if (!project) {
-    notFound();
-  }
+  if (!project) notFound();
+  const projects = getAllProjects();
+  const nextProject = projects[(projects.findIndex(item => item.slug === slug) + 1) % projects.length];
 
   return (
-    <article className="py-16">
-      <Link
-        href="/projects"
-        className="text-sm text-zinc-500 underline underline-offset-4 hover:no-underline"
-      >
-        ← All projects
-      </Link>
-
-      <h1 className="mt-6 text-3xl font-semibold tracking-tight">
-        {project.title}
-      </h1>
-      <p className="mt-2 font-mono text-xs uppercase tracking-wider text-zinc-500">
-        {project.year} · {project.stack.join(" · ")}
-      </p>
-
-      <p className="mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-        {project.summary}
-      </p>
-
-      <div className="mt-8 flex max-w-xl flex-col gap-4">
-        {project.body.map((paragraph) => (
-          <p key={paragraph} className="leading-7">
-            {paragraph}
-          </p>
-        ))}
+    <article className="detail-page">
+      <Link href="/projects" className="text-link"><span aria-hidden="true">←</span> All projects</Link>
+      <header className="detail-heading">
+        <p className="eyebrow">{project.category} / {project.year}</p>
+        <h1>{project.title}</h1>
+        <p>{project.summary}</p>
+      </header>
+      <div className="detail-preview" data-theme={project.theme}>
+        <div className="project-art-window"><ProjectPreview project={project} /></div>
       </div>
-
-      {(project.repo || project.demo) && (
-        <ul className="mt-10 flex flex-wrap gap-6 text-sm font-medium">
-          {project.repo && (
-            <li>
-              <a
-                className="underline underline-offset-4 hover:no-underline"
-                href={project.repo}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Source
-              </a>
-            </li>
-          )}
-          {project.demo && (
-            <li>
-              <a
-                className="underline underline-offset-4 hover:no-underline"
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Live demo
-              </a>
-            </li>
-          )}
-        </ul>
-      )}
+      <div className="detail-body">
+        <dl className="detail-facts">
+          <dt>Year</dt><dd>{project.year}</dd>
+          <dt>Focus</dt><dd>{project.category}</dd>
+          <dt>Tools &amp; topics</dt><dd>{project.stack.join(" / ")}</dd>
+        </dl>
+        <div className="detail-prose">
+          <h2>The thinking behind it.</h2>
+          {project.body.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+          {(project.repo || project.demo) && <ul className="project-external-links">
+            {project.repo && <li><a className="text-link" href={project.repo} target="_blank" rel="noreferrer">Explore the source <span aria-hidden="true">↗</span></a></li>}
+            {project.demo && <li><a className="text-link" href={project.demo} target="_blank" rel="noreferrer">Try the live project <span aria-hidden="true">↗</span></a></li>}
+          </ul>}
+        </div>
+      </div>
+      {nextProject && nextProject.slug !== project.slug && <Link className="next-project" href={`/projects/${nextProject.slug}`}><span><span className="eyebrow">Up next</span><strong>{nextProject.title}</strong></span><span aria-hidden="true">↗</span></Link>}
     </article>
   );
 }

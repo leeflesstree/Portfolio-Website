@@ -1,6 +1,8 @@
 export type Project = {
   slug: string;
   title: string;
+  category: string;
+  theme: "sage" | "clay" | "lilac";
   /** One-liner used on cards and in listings. */
   summary: string;
   /** Paragraphs rendered on the project detail page. */
@@ -18,6 +20,8 @@ export const projects: Project[] = [
   {
     slug: "rollroute",
     title: "RollRoute",
+    category: "Product concept · Accessibility",
+    theme: "sage",
     summary:
       "An accessible navigation app that makes curb cuts, step-free entrances, elevator outages, and surface conditions part of route planning.",
     body: [
@@ -31,6 +35,8 @@ export const projects: Project[] = [
   {
     slug: "facial-emotion-recognition",
     title: "Facial Emotion Recognition",
+    category: "Machine learning · Computer vision",
+    theme: "lilac",
     summary:
       "A machine-learning project that recognizes emotions from facial-landmark geometry, comparing interpretable models with a neural-network benchmark.",
     body: [
@@ -45,6 +51,8 @@ export const projects: Project[] = [
   {
     slug: "portfolio-website",
     title: "Personal Portfolio",
+    category: "Web development · Interaction",
+    theme: "clay",
     summary:
       "A responsive personal site for presenting selected work, experience, skills, and direct contact information.",
     body: [

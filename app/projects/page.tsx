@@ -4,22 +4,20 @@ import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Things I have designed, built, and shipped.",
+  description: "Selected software projects, experiments, and the thinking behind them.",
 };
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
-
   return (
-    <div className="py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Projects</h1>
-      <p className="mt-4 max-w-xl leading-7 text-zinc-600 dark:text-zinc-400">
-        Things I have designed, built, and continue to develop.
-      </p>
-      <ul className="mt-10 flex flex-col gap-6">
-        {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
+    <div className="projects-page">
+      <header className="page-intro">
+        <p className="eyebrow">A collection of ideas, made real</p>
+        <h1>The <em>work.</em></h1>
+        <p>Web experiences, machine learning, and ideas for a more accessible world. Here’s what I’ve been working on.</p>
+      </header>
+      <ul className="project-grid">
+        {projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}
       </ul>
     </div>
   );

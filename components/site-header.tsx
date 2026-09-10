@@ -3,16 +3,17 @@ import { navItems, site } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-10 border-b border-black/5 bg-background/80 backdrop-blur dark:border-white/10">
-      <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-semibold tracking-tight">
-          {site.name}
+    <header className="site-header">
+      <nav className="site-container header-inner" aria-label="Main navigation">
+        <Link href="/" className="wordmark">
+          {site.name}<span className="wordmark-period">.</span>
         </Link>
-        <ul className="flex gap-6 text-sm text-zinc-600 dark:text-zinc-400">
+        <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link className="hover:text-foreground" href={item.href}>
+              <Link href={item.href}>
                 {item.label}
+                {item.label === "Contact" && <span aria-hidden="true"> ↗</span>}
               </Link>
             </li>
           ))}

@@ -31,8 +31,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
-        <main className="mx-auto w-full max-w-3xl flex-1 px-6">{children}</main>
+        <main id="main-content" className="site-container site-main">{children}</main>
         <SiteFooter />
       </body>
     </html>
