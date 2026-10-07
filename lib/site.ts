@@ -3,15 +3,15 @@
  * that appear across the site.
  */
 export const site = {
-  name: "Nicholas Alexander",
+  name: "Alexander Nicholas",
   role: "Software Developer",
   /** Shown under the hero heading. */
   tagline:
     "I build web applications with a focus on clean interfaces and maintainable code. Currently looking for my next opportunity.",
   /** Shown in the About section. */
   about:
-    "I’m Nicholas, a software developer who cares about how things work and how they feel to use. My work spans web applications, accessible navigation concepts, and machine learning. I enjoy turning a complex problem into something clear, useful, and carefully made.",
-  email: "nicholas.alexander.us@gmail.com",
+    "I’m Alexander, a software developer who cares about how things work and how they feel to use. My work spans web applications, accessible navigation concepts, and machine learning. I enjoy turning a complex problem into something clear, useful, and carefully made.",
+  email: "alexandersnicholas0203@gmail.com",
   /** Used for metadata and canonical URLs. */
   url: "https://nicholas-alexander-portfolio.biggestnumber090.chatgpt.site",
   skills: [
