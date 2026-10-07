@@ -33,6 +33,39 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "mc-schematic",
+    title: "MC Schematic",
+    category: "Minecraft tooling · In progress",
+    theme: "sage",
+    summary:
+      "An offline Minecraft schematic viewer for exploring build layers, inspecting block states, and planning materials without uploading files.",
+    body: [
+      "MC Schematic makes a Minecraft build easier to inspect before placing the first block. The current browser-based viewer reads Sponge .schem versions 2 and 3 locally, decodes palettes and block states, and presents dimensions, material counts, and textured horizontal layers.",
+      "A searchable material list and keyboard-accessible tile inspection connect each block to its local coordinates and properties. Bundled textures keep the viewer offline, with no account, external dependencies, or schematic uploads. Parser and texture-mapping tests cover the core decoding workflow.",
+      "This is an in-progress project. The current implementation is a top-down material viewer, not a geometry-accurate 3D blueprint or an AI generator; 3D viewing and additional schematic formats are future work.",
+    ],
+    stack: ["JavaScript", "HTML", "CSS", "NBT Parsing", "Node.js Tests"],
+    year: 2026,
+    featured: true,
+    repo: "https://github.com/leeflesstree/mc-schematic-starter",
+  },
+  {
+    slug: "it-support-lab",
+    title: "Small Office IT Support Lab",
+    category: "IT support · Training lab",
+    theme: "lilac",
+    summary:
+      "A local Windows training lab for practicing layered troubleshooting, access-log review, and verified file recovery across six simulated support incidents.",
+    body: [
+      "A fictional office inventory intranet provides a repeatable environment for exploring common support problems. A Python service runs only on the local computer, while PowerShell diagnostics separate name-resolution, TCP connectivity, and HTTP failures.",
+      "Six incident exercises cover an incorrect hostname, wrong port, stopped service, missing page, denied-request log review, and damaged inventory data. The recovery workflow checks SHA-256 hashes, rejects modified backups, and preserves the replaced working file.",
+      "The AI-assisted starter includes incident runbooks, reference validation, and ticket templates. It is presented as a learning project, not production support experience; supplied test results are separate from personal exercise completion. The lab does not implement enterprise identity management or authenticated access control.",
+    ],
+    stack: ["PowerShell", "Python", "TCP / HTTP", "SHA-256", "Incident Documentation"],
+    year: 2026,
+    featured: true,
+  },
+  {
     slug: "facial-emotion-recognition",
     title: "Facial Emotion Recognition",
     category: "Machine learning · Computer vision",

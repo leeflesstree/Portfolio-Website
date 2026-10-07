@@ -22,6 +22,35 @@ export function ProjectPreview({ project }: { project: Project }) {
       </div>
     );
   }
+  if (project.slug === "mc-schematic") {
+    return (
+      <div className="project-preview preview-schematic">
+        <div className="preview-topline"><span className="preview-brand">MC Schematic<span className="brand-dot" /></span><span className="micro-label">Viewer study</span></div>
+        <p className="preview-headline">Big ideas.<br />Block by block.</p>
+        <div className="schematic-study" role="img" aria-label="Illustrative top-down block layout, not an imported schematic">
+          <div className="schematic-grid" aria-hidden="true">
+            {"000000000011111100012222100012332100012332100012222100011011100000000000".split("").map((block, index) => <span key={index} data-block={block} />)}
+          </div>
+          <span className="micro-label">Layer study / top view</span>
+        </div>
+        <div className="preview-bottomline"><span>Local files</span><span>Block inspection</span><span>Material counts</span></div>
+      </div>
+    );
+  }
+  if (project.slug === "it-support-lab") {
+    return (
+      <div className="project-preview preview-support">
+        <div className="preview-topline"><span className="preview-brand">Support lab<span className="brand-dot" /></span><span className="micro-label">Training study</span></div>
+        <p className="preview-headline">Find the cause.<br />Verify the fix.</p>
+        <div className="support-study" aria-label="Illustrative troubleshooting sequence: name resolution, TCP connectivity, HTTP response">
+          {["Name resolution", "TCP connectivity", "HTTP response"].map((step, index) => (
+            <div className="support-step" key={step}><span className="micro-label">0{index + 1}</span><span>{step}</span><span aria-hidden="true">↗</span></div>
+          ))}
+        </div>
+        <div className="preview-bottomline"><span>6 simulated incidents</span><span>Evidence-led recovery</span></div>
+      </div>
+    );
+  }
   if (project.slug === "facial-emotion-recognition") {
     return (
       <div className="project-preview preview-emotion">
