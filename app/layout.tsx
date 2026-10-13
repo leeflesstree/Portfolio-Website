@@ -33,7 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
-        <main id="main-content" className="site-container site-main">{children}</main>
+        <main id="main-content" tabIndex={-1} className="site-container site-main">{children}</main>
         <SiteFooter />
       </body>
     </html>

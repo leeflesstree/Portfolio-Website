@@ -37,6 +37,7 @@ export function MotionGallery({ projects }: { projects: Project[] }) {
           <Link className="gallery-open" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}><span>Explore the project</span><span aria-hidden="true">↗</span></Link>
         </div>
       </div>
+      <p className="gallery-caption"><span className="eyebrow">Featured / {String(activeIndex + 1).padStart(2, "0")}</span><span>{project.title}</span></p>
       <div className="gallery-controls">
         <div className="gallery-picker" aria-label="Choose a featured project">
           {projects.map((item, index) => <button key={item.slug} type="button" aria-label={`Show ${item.title}`} aria-pressed={index === activeIndex} aria-controls="gallery-preview" onClick={() => setActiveIndex(index)}>{String(index + 1).padStart(2, "0")}</button>)}

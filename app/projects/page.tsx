@@ -4,7 +4,7 @@ import { getAllProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Selected software projects, experiments, and the thinking behind them.",
+  description: "IT labs, software projects, machine learning, and the work behind each one.",
 };
 
 export default function ProjectsPage() {
@@ -12,9 +12,9 @@ export default function ProjectsPage() {
   return (
     <div className="projects-page">
       <header className="page-intro">
-        <p className="eyebrow">A collection of ideas, made real</p>
+        <p className="eyebrow">Projects / Labs / Experiments</p>
         <h1>The <em>work.</em></h1>
-        <p>Web experiences, machine learning, and ideas for a more accessible world. Here’s what I’ve been working on.</p>
+        <p>Practical IT learning, software tools, and machine learning. Explore the environment, decisions, and evidence behind each project.</p>
       </header>
       <ul className="project-grid">
         {projects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} />)}

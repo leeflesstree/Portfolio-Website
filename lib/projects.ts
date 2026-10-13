@@ -9,8 +9,6 @@ export type Project = {
   body: string[];
   stack: string[];
   year: number;
-  /** Featured projects appear on the landing page. */
-  featured: boolean;
   repo?: string;
   demo?: string;
 };
@@ -30,7 +28,6 @@ export const projects: Project[] = [
     ],
     stack: ["Accessible Navigation", "Routing", "Community Mapping"],
     year: 2026,
-    featured: true,
   },
   {
     slug: "mc-schematic",
@@ -46,7 +43,6 @@ export const projects: Project[] = [
     ],
     stack: ["JavaScript", "HTML", "CSS", "NBT Parsing", "Node.js Tests"],
     year: 2026,
-    featured: true,
     repo: "https://github.com/leeflesstree/mc-schematic-starter",
   },
   {
@@ -63,7 +59,6 @@ export const projects: Project[] = [
     ],
     stack: ["PowerShell", "Python", "TCP / HTTP", "SHA-256", "Incident Documentation"],
     year: 2026,
-    featured: true,
   },
   {
     slug: "facial-emotion-recognition",
@@ -78,7 +73,6 @@ export const projects: Project[] = [
     ],
     stack: ["Python", "scikit-learn", "OpenCV", "face_recognition"],
     year: 2025,
-    featured: true,
     repo: "https://github.com/leeflesstree/cs471Final",
   },
   {
@@ -94,7 +88,6 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     year: 2026,
-    featured: true,
     repo: "https://github.com/leeflesstree/Portfolio-Website",
   },
 ];
@@ -105,7 +98,11 @@ export function getAllProjects(): Project[] {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return getAllProjects().filter((project) => project.featured);
+  const selected = ["it-support-lab", "mc-schematic", "facial-emotion-recognition"];
+  return selected.flatMap((slug) => {
+    const project = getProject(slug);
+    return project ? [project] : [];
+  });
 }
 
 export function getProject(slug: string): Project | undefined {

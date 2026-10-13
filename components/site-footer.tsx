@@ -1,4 +1,5 @@
 import { site } from "@/lib/site";
+import Link from "next/link";
 
 // Evaluated when the page is rendered or prerendered, so new deployments do
 // not carry a stale copyright year into the next calendar year.
@@ -12,6 +13,7 @@ export function SiteFooter() {
           © {year} {site.name}
         </span>
         <ul className="footer-links">
+          <li><Link href="/resume">Résumé</Link></li>
           {site.socials.map((social) => (
             <li key={social.href}>
               <a
