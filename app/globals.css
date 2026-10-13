@@ -71,6 +71,15 @@ button, a { touch-action: manipulation; }
 .hero h1 { font-size: clamp(80px, 9vw, 128px); line-height: .91; letter-spacing: -.085em; font-weight: 450; margin: 25px 0; }
 h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -.065em; }
 .hero-description { font-size: 18px; color: var(--muted); line-height: 1.65; margin: 0; letter-spacing: -.02em; max-width: 43ch; }
+.hero-introduction { display: grid; grid-template-columns: 120px minmax(0,1fr); align-items: center; gap: 24px; }
+.hero-headshot { min-width: 0; margin: 0; }
+.headshot-frame { position: relative; isolation: isolate; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--line); border-radius: 24px 24px 12px 12px; background: color-mix(in srgb,var(--sage-middle) 55%,var(--surface)); }
+.headshot-frame::before { content: ""; position: absolute; z-index: -1; width: 150%; aspect-ratio: 1; border: 1px solid color-mix(in srgb,var(--accent) 18%,transparent); border-radius: 50%; left: -65%; top: 12%; }
+.headshot-frame img { object-fit: cover; object-position: center 30%; }
+.headshot-empty { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; padding: 16px 8px; color: var(--muted); }
+.headshot-empty svg { width: 54px; height: 68px; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; }
+.headshot-empty span { font-size: 10px; text-align: center; }
+.hero-headshot figcaption { margin-top: 9px; font-family: var(--font-geist-mono),monospace; font-size: 9px; line-height: 1.6; text-transform: uppercase; letter-spacing: .025em; color: var(--muted); }
 .pill-link { margin-top: 30px; min-height: 48px; padding: 0 22px; display: inline-flex; align-items: center; gap: 28px; border: 1px solid var(--foreground); border-radius: 99px; font-size: 14px; transition: background .25s, color .25s, gap .25s; }
 .pill-link:hover { background: var(--foreground); color: var(--background); gap: 34px; }
 .hero-footnote { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); }
@@ -309,6 +318,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .hero { gap: 24px; min-height: 560px; padding: 55px 0; }
   .hero h1 { font-size: 100px; }
   .hero-copy > .eyebrow { font-size: 12px; }
+  .hero-introduction { grid-template-columns: 100px minmax(0,1fr); gap: 18px; }
   .project-preview { padding: 20px; }
   .preview-topline { gap: 8px; flex-wrap: wrap; }
   .preview-brand { font-size: 16px; }
@@ -340,6 +350,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .hero-copy > .eyebrow { font-size: 12px; }
   .hero h1 { font-size: clamp(84px, 18vw, 132px); margin: 25px 0; }
   .hero-description { font-size: 18px; }
+  .hero-introduction { grid-template-columns: 120px minmax(0,1fr); gap: 24px; }
   .pill-link { margin-top: 24px; }
   .motion-gallery { width: min(100%, 490px); margin: 0 auto; }
   .gallery-stage { width: calc(100% - 44px); margin-bottom: 42px; }
@@ -422,6 +433,12 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .hero-copy > .eyebrow { font-size: 10px; }
   .hero h1 { font-size: clamp(76px,20vw,90px); }
   .hero-description { font-size: 16px; }
+  .hero-introduction { grid-template-columns: 88px minmax(0,1fr); gap: 18px; align-items: start; }
+  .headshot-frame { border-radius: 20px 20px 10px 10px; }
+  .headshot-empty { gap: 6px; padding: 12px 6px; }
+  .headshot-empty svg { width: 40px; height: 50px; }
+  .headshot-empty span { font-size: 9px; }
+  .hero-headshot figcaption { font-size: 8px; }
   .hero-actions .pill-link { font-size: 12px; padding: 0 16px; gap: 12px; }
   .gallery-caption { font-size: 12px; justify-content: center; text-align: center; }
   .page-intro h1 { font-size: 54px; overflow-wrap: break-word; }

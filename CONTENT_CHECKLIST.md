@@ -4,6 +4,7 @@ This preview preserves the Motion Gallery visual identity while adding a clearer
 
 ## Personal information to supply
 
+- A real headshot or photo of Alexander for the homepage. Use an actual photo, not an AI-generated identity; add it to `public/images/` and set `profile.headshot.src` to its public path (for example, `/images/headshot.jpg`).
 - Exact degree or qualification, institution, graduation date, and relevant coursework.
 - Employment, volunteer, or other relevant experience: organization, role, dates, responsibilities, and outcomes. Identify academic or team work separately.
 - Earned certifications and verification links, or explicitly labeled training in progress. Remove this placeholder if not applicable.

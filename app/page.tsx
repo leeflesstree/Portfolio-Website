@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MotionGallery } from "@/components/motion-gallery";
 import { ProjectCard } from "@/components/project-card";
 import { SkillGroups } from "@/components/skill-groups";
+import { Headshot } from "@/components/headshot";
 import { getAllProjects, getFeaturedProjects } from "@/lib/projects";
 import { profile } from "@/lib/profile";
 import { site } from "@/lib/site";
@@ -15,10 +16,13 @@ export default function HomePage() {
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> {site.name} / {site.role}</p>
           <h1 id="hero-heading">Built to<br />be <em>felt.</em></h1>
-          <p className="hero-description">{site.tagline}</p>
+          <div className="hero-introduction">
+            <Headshot />
+            <p className="hero-description">{site.tagline}</p>
+          </div>
           <div className="hero-actions">
-            <a className="pill-link primary-pill" href="#work">Explore my projects <span aria-hidden="true">↘</span></a>
-            <Link className="pill-link" href="/resume">Résumé <span aria-hidden="true">↗</span></Link>
+            <a className="pill-link primary-pill" href="#work">Explore my projects <span aria-hidden="true">↗</span></a>
+            <Link className="pill-link" href="/resume">Résumé <span aria-hidden="true">↘</span></Link>
           </div>
           <div className="hero-socials">{site.socials.map(social => <a key={social.href} className="text-link" href={social.href} target="_blank" rel="noreferrer">{social.label}<span aria-hidden="true">↗</span></a>)}</div>
         </div>

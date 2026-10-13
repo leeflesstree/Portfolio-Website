@@ -12,6 +12,11 @@ export type BackgroundEntry = {
 
 /** Confirmed context and clearly marked spaces for the next content pass. */
 export const profile = {
+  // Add the real photo to public, then set src to its public path, e.g. /images/headshot.jpg.
+  headshot: {
+    src: null as string | null,
+    alt: "Portrait of Alexander Nicholas",
+  },
   intro:
     "I’m Alexander. My projects connect software development with an interest in IT support and networking, from local troubleshooting exercises to browser tools and machine learning. I care about understanding how a system works, making it useful, and explaining the decisions behind it.",
   overview: [
@@ -27,9 +32,10 @@ export const profile = {
       detail: "Exploring practical support workflows alongside software projects.",
     },
     {
-      label: "Approach",
-      value: "Build. Test. Document.",
-      detail: "Understand the problem, check the behavior, and explain the result.",
+      label: "Certifications",
+      value: "Credentials & training",
+      detail: "Placeholder: add earned credentials, issuers, dates, and verification links.",
+      pending: true,
     },
     {
       label: "Direction",
