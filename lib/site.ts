@@ -31,6 +31,7 @@ export const site = {
 } as const;
 
 export const navItems = [
+  { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
   { label: "Skills", href: "/skills" },
   { label: "Background", href: "/background" },

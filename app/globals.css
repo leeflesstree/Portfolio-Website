@@ -70,16 +70,17 @@ button, a { touch-action: manipulation; }
 .hero-copy > .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--muted); }
 .hero h1 { font-size: clamp(80px, 9vw, 128px); line-height: .91; letter-spacing: -.085em; font-weight: 450; margin: 25px 0; }
 h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: -.065em; }
-.hero-description { font-size: 18px; color: var(--muted); line-height: 1.65; margin: 0; letter-spacing: -.02em; max-width: 43ch; }
-.hero-introduction { display: grid; grid-template-columns: 120px minmax(0,1fr); align-items: center; gap: 24px; }
-.hero-headshot { min-width: 0; margin: 0; }
-.headshot-frame { position: relative; isolation: isolate; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--line); border-radius: 24px 24px 12px 12px; background: color-mix(in srgb,var(--sage-middle) 55%,var(--surface)); }
+.hero-summary { max-width: 55ch; color: var(--muted); font-size: 17px; line-height: 1.75; letter-spacing: -.015em; }
+.hero-summary p { margin: 0 0 16px; }
+.hero-summary p:last-child { margin-bottom: 0; }
+.hero-headshot { min-width: 0; width: min(100%,430px); margin: 0 auto; }
+.headshot-frame { position: relative; isolation: isolate; aspect-ratio: 4 / 5; overflow: hidden; border: 1px solid var(--line); border-radius: 42px 42px 22px 22px; background: color-mix(in srgb,var(--sage-middle) 55%,var(--surface)); }
 .headshot-frame::before { content: ""; position: absolute; z-index: -1; width: 150%; aspect-ratio: 1; border: 1px solid color-mix(in srgb,var(--accent) 18%,transparent); border-radius: 50%; left: -65%; top: 12%; }
 .headshot-frame img { object-fit: cover; object-position: center 30%; }
-.headshot-empty { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; padding: 16px 8px; color: var(--muted); }
-.headshot-empty svg { width: 54px; height: 68px; stroke: var(--accent); stroke-width: 1.5; stroke-linecap: round; }
-.headshot-empty span { font-size: 10px; text-align: center; }
-.hero-headshot figcaption { margin-top: 9px; font-family: var(--font-geist-mono),monospace; font-size: 9px; line-height: 1.6; text-transform: uppercase; letter-spacing: .025em; color: var(--muted); }
+.headshot-empty { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; padding: 32px; color: var(--muted); }
+.headshot-empty svg { width: 150px; height: 188px; stroke: var(--accent); stroke-width: 1; stroke-linecap: round; }
+.headshot-empty span { font-size: 14px; text-align: center; }
+.hero-headshot figcaption { margin-top: 14px; font-family: var(--font-geist-mono),monospace; font-size: 10px; line-height: 1.6; text-transform: uppercase; letter-spacing: .025em; color: var(--muted); }
 .pill-link { margin-top: 30px; min-height: 48px; padding: 0 22px; display: inline-flex; align-items: center; gap: 28px; border: 1px solid var(--foreground); border-radius: 99px; font-size: 14px; transition: background .25s, color .25s, gap .25s; }
 .pill-link:hover { background: var(--foreground); color: var(--background); gap: 34px; }
 .hero-footnote { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); }
@@ -306,6 +307,46 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .evidence-link h3 { font-size: 18px; font-weight: 450; margin: 0 0 8px; }
 .evidence-link h3 span { float: right; }
 .detail-prose .evidence-link p, .detail-prose .content-placeholder p { font-size: 14px; line-height: 1.75; margin: 0; }
+.home-showcase { padding: 70px 0 80px; }
+.home-showcase .section-heading h2 { font-size: clamp(40px,4.8vw,64px); }
+.project-showcase { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: center; gap: 70px; }
+.showcase-deck, .showcase-highlights { min-width: 0; }
+.showcase-deck { padding: 12px 0; }
+.showcase-deck .gallery-stage { width: min(100% - 44px,420px); margin: 22px auto 38px; }
+.showcase-deck .project-preview { display: flex; flex-direction: column; height: 440px; }
+.showcase-deck .preview-bottomline { margin-top: auto; padding-top: 18px; }
+.showcase-deck .schematic-grid { width: min(100%,132px); }
+.showcase-deck .schematic-study { padding: 12px; }
+.showcase-deck .gallery-controls { justify-content: center; gap: 4px 20px; }
+.showcase-deck .gallery-picker { justify-content: center; width: 100%; }
+.gallery-rotation-control { display: flex; justify-content: flex-end; width: min(100% - 24px,420px); margin: 0 auto 8px; }
+.gallery-transport { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 22px; }
+.rotation-button { border: 1px solid var(--line); border-radius: 99px; min-height: 44px; padding: 0 14px; background: transparent; color: var(--foreground); font-size: 12px; }
+.rotation-button:hover:not(:disabled) { background: var(--surface); border-color: var(--muted); }
+.rotation-button:disabled { color: var(--muted); cursor: default; }
+.showcase-highlights > .eyebrow { color: var(--muted); margin-bottom: 18px; }
+.project-spotlights { display: grid; gap: 20px; list-style: none; padding: 0; margin: 0; }
+.spotlight-card { min-width: 0; }
+.spotlight-link { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1fr); align-items: center; gap: 22px; border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--surface); transition: border-color .2s; }
+.spotlight-link:hover { border-color: var(--accent); }
+.spotlight-art { align-self: stretch; display: grid; place-items: center; overflow: hidden; border-radius: 10px; background: color-mix(in srgb,var(--sage-middle) 60%,var(--surface)); }
+.spotlight-art[data-theme="lilac"] { background: color-mix(in srgb,var(--lilac-middle) 60%,var(--surface)); }
+.spotlight-art[data-theme="clay"] { background: color-mix(in srgb,var(--clay-middle) 60%,var(--surface)); }
+.spotlight-art .project-preview { padding: 18px 12px; width: 100%; }
+.spotlight-art .preview-topline, .spotlight-art .preview-headline, .spotlight-art .preview-bottomline { display: none; }
+.spotlight-art .support-study { background: transparent; padding: 6px; min-height: 150px; }
+.spotlight-art .support-step { font-size: 10px; gap: 8px; }
+.spotlight-art .support-step > span:last-child { display: none; }
+.spotlight-art .support-step .micro-label { font-size: 9px; }
+.spotlight-art .schematic-study { padding: 6px; background: transparent; }
+.spotlight-art .schematic-study > .micro-label { font-size: 8px; text-align: center; }
+.spotlight-art .schematic-grid { width: min(100%,135px); }
+.spotlight-copy { min-width: 0; }
+.spotlight-copy > .eyebrow { font-size: 10px; color: var(--muted); }
+.spotlight-copy h3 { font-size: 24px; line-height: 1.15; font-weight: 450; letter-spacing: -.04em; margin: 10px 0; }
+.spotlight-summary { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 12px 0 16px; }
+.spotlight-action { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 12px; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px; }
+.spotlight-action > span { font-size: 18px; }
 @keyframes preview-enter { from { opacity: .3; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
@@ -318,7 +359,6 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .hero { gap: 24px; min-height: 560px; padding: 55px 0; }
   .hero h1 { font-size: 100px; }
   .hero-copy > .eyebrow { font-size: 12px; }
-  .hero-introduction { grid-template-columns: 100px minmax(0,1fr); gap: 18px; }
   .project-preview { padding: 20px; }
   .preview-topline { gap: 8px; flex-wrap: wrap; }
   .preview-brand { font-size: 16px; }
@@ -332,6 +372,9 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .project-grid > li:first-child .project-visual { gap: 30px; padding: 44px 7%; }
   .project-visual { padding: 38px 28px; }
   .about-section { gap: 42px; }
+  .project-showcase { gap: 36px; }
+  .spotlight-link { grid-template-columns: minmax(0,.65fr) minmax(0,1fr); gap: 16px; padding: 18px; }
+  .spotlight-copy h3 { font-size: 21px; }
   .overview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .skill-groups { grid-template-columns: 1fr; }
   .skill-group { padding: 24px; }
@@ -340,17 +383,24 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .topology-flow li { padding: 14px; }
   .environment-list > div { grid-template-columns: 110px 1fr; gap: 14px; }
 }
+@media (max-width: 900px) {
+  .project-showcase { grid-template-columns: 1fr; gap: 36px; }
+  .showcase-deck { width: min(100%,520px); margin: 0 auto; }
+  .spotlight-link { grid-template-columns: 180px minmax(0,1fr); padding: 22px; gap: 26px; }
+  .spotlight-copy h3 { font-size: 24px; }
+}
 @media (max-width: 760px) {
   html { scroll-padding-top: 24px; }
   .site-container { width: calc(100% - 40px); }
   .header-inner { min-height: 86px; gap: 5px; flex-wrap: wrap; padding: 17px 0 12px; }
   .wordmark { font-size: 19px; }
-  .nav-links { gap: 20px; font-size: 13px; }
+  .nav-links { width: 100%; gap: 20px; font-size: 13px; }
   .hero { grid-template-columns: 1fr; padding: 38px 0 28px; gap: 28px; }
   .hero-copy > .eyebrow { font-size: 12px; }
   .hero h1 { font-size: clamp(84px, 18vw, 132px); margin: 25px 0; }
-  .hero-description { font-size: 18px; }
-  .hero-introduction { grid-template-columns: 120px minmax(0,1fr); gap: 24px; }
+  .hero-summary { font-size: 17px; max-width: 62ch; }
+  .hero-headshot { width: min(100% - 24px,340px); margin-top: 8px; }
+  .headshot-frame { border-radius: 32px 32px 18px 18px; }
   .pill-link { margin-top: 24px; }
   .motion-gallery { width: min(100%, 490px); margin: 0 auto; }
   .gallery-stage { width: calc(100% - 44px); margin-bottom: 42px; }
@@ -368,6 +418,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .hero-footnote .eyebrow { font-size: 12px; }
   .scroll-cue { font-size: 12px; gap: 12px; }
   .work-section { padding: 65px 0; }
+  .home-showcase { padding: 50px 0 60px; }
   .section-heading { align-items: start; }
   .section-heading h2, .about-section h2 { font-size: 50px; }
   .section-heading > .text-link { margin-top: 40px; white-space: nowrap; font-size: 12px; gap: 8px; }
@@ -417,7 +468,7 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 @media (max-width: 440px) {
   .header-inner { flex-wrap: wrap; justify-content: space-between; padding: 17px 0 12px; gap: 5px; }
   .wordmark { width: 100%; font-size: 21px; }
-  .nav-links { width: 100%; gap: 8px 18px; font-size: 12px; }
+  .nav-links { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; gap: 0 12px; font-size: 12px; }
   .nav-links a { min-height: 44px; }
   .gallery-controls { flex-wrap: wrap; justify-content: center; gap: 8px 20px; }
   .gallery-stage { width: calc(100% - 42px); }
@@ -432,13 +483,17 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
   .overview-card h3 { margin: 12px 0 8px; }
   .hero-copy > .eyebrow { font-size: 10px; }
   .hero h1 { font-size: clamp(76px,20vw,90px); }
-  .hero-description { font-size: 16px; }
-  .hero-introduction { grid-template-columns: 88px minmax(0,1fr); gap: 18px; align-items: start; }
-  .headshot-frame { border-radius: 20px 20px 10px 10px; }
-  .headshot-empty { gap: 6px; padding: 12px 6px; }
-  .headshot-empty svg { width: 40px; height: 50px; }
-  .headshot-empty span { font-size: 9px; }
-  .hero-headshot figcaption { font-size: 8px; }
+  .hero-summary { font-size: 16px; }
+  .headshot-empty { gap: 22px; padding: 24px; }
+  .headshot-empty svg { width: 120px; height: 150px; }
+  .showcase-deck .preview-headline { font-size: 24px; margin-block: 20px; }
+  .spotlight-link { grid-template-columns: 90px minmax(0,1fr); padding: 16px; gap: 16px; }
+  .spotlight-art .project-preview { padding: 14px 6px; }
+  .spotlight-art .support-step { grid-template-columns: 1fr; font-size: 10px; gap: 4px; }
+  .spotlight-art .schematic-grid { gap: 2px; }
+  .spotlight-art .schematic-study > .micro-label { display: none; }
+  .spotlight-copy h3 { font-size: 20px; }
+  .spotlight-copy > .eyebrow { font-size: 9px; }
   .hero-actions .pill-link { font-size: 12px; padding: 0 16px; gap: 12px; }
   .gallery-caption { font-size: 12px; justify-content: center; text-align: center; }
   .page-intro h1 { font-size: 54px; overflow-wrap: break-word; }

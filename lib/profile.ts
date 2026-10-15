@@ -17,6 +17,10 @@ export const profile = {
     src: null as string | null,
     alt: "Portrait of Alexander Nicholas",
   },
+  homeSummary: [
+    "I’m Alexander, a software developer with a growing interest in IT support, networking, and security. I like turning complicated problems into tools that are clear, useful, and thoughtfully made.",
+    "My projects span browser-based tools, machine learning, and hands-on IT training. I enjoy understanding a system, testing how it behaves, and documenting what I learn. I’m looking for an early-career opportunity where I can keep building that foundation.",
+  ],
   intro:
     "I’m Alexander. My projects connect software development with an interest in IT support and networking, from local troubleshooting exercises to browser tools and machine learning. I care about understanding how a system works, making it useful, and explaining the decisions behind it.",
   overview: [

@@ -12,7 +12,8 @@ export function Headshot() {
             src={src}
             alt={alt}
             fill
-            sizes="(max-width: 440px) 88px, 120px"
+            sizes="(max-width: 760px) 340px, (max-width: 1000px) 42vw, 430px"
+            loading="eager"
             unoptimized
           />
         ) : (

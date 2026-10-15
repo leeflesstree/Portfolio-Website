@@ -2,6 +2,10 @@
 
 This preview preserves the Motion Gallery visual identity while adding a clearer overview, evidence-linked skills, background, résumé access, and structured project case studies. Missing information is labeled on the pages; it is not presented as a completed credential or result.
 
+The homepage is now intentionally limited to the introduction and large headshot, at-a-glance facts, one compact project showcase, and contact information. Skills, background, and the full project index remain available through the top navigation, including the new Home link. Edit the expanded introduction in `profile.homeSummary`.
+
+The project deck cycles through all projects; IT Support Lab and MC Schematic are the two standalone previews. Rotation can be paused, stops after keyboard interaction until explicitly resumed, and respects reduced-motion preferences.
+
 ## Personal information to supply
 
 - A real headshot or photo of Alexander for the homepage. Use an actual photo, not an AI-generated identity; add it to `public/images/` and set `profile.headshot.src` to its public path (for example, `/images/headshot.jpg`).
@@ -37,3 +41,11 @@ Review documents, screenshots, tickets, and logs for secrets, account identifier
 - Desktop, mobile, and dark-mode screenshots were reviewed. This is not a full accessibility audit.
 
 These checks used the local static export. A temporary preview server handled this Next.js version’s Windows-specific segment-file paths; production deployment was not verified or changed during this pass.
+
+## Homepage consolidation verification — 2026-10-13
+
+- Production build passed after the layout and carousel-control changes.
+- Homepage checked at seven widths from 320 to 1440 pixels in light and dark modes; all five slide previews fit without clipping or horizontal overflow.
+- Nine other pages checked at four widths; Home navigation passed.
+- Timer-driven cycling, hover pause, persistent keyboard pause, explicit keyboard/mouse resume, offscreen pause, reduced motion, and manual controls passed browser checks.
+- No browser runtime errors or failed page/asset responses occurred. These are scoped checks, not a full accessibility audit or production deployment verification.
