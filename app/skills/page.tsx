@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Placeholder } from "@/components/placeholder";
+import { CredentialCard } from "@/components/credential-card";
 import { SkillGroups } from "@/components/skill-groups";
+import { profile } from "@/lib/profile";
 
 export const metadata: Metadata = {
   title: "Skills",
-  description: "Software skills and IT training topics, connected to the projects that give them context.",
+  description: "Alexander Nicholas’s technical skills, CompTIA A+ certification, current study, and the work behind them.",
 };
 
 export default function SkillsPage() {
@@ -14,12 +15,21 @@ export default function SkillsPage() {
       <header className="page-intro">
         <p className="eyebrow">Tools are useful. Context matters.</p>
         <h1>Skills, with <em>substance.</em></h1>
-        <p>From writing an interface to understanding a failed request: these are the tools and technical topics in my work, with projects you can explore.</p>
+        <p>Professional experience, a personal infrastructure lab, and software projects give these skills their context.</p>
       </header>
+      <section className="info-section" aria-labelledby="credentials-heading">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">01 / Earned certification</p>
+            <h2 className="section-title" id="credentials-heading">A verified <em>foundation.</em></h2>
+          </div>
+        </div>
+        <div className="credential-grid">{profile.certifications.map(entry => <CredentialCard key={entry.title} entry={entry} />)}</div>
+      </section>
       <section className="info-section" aria-labelledby="skills-heading">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">01 / Connected to the work</p>
+            <p className="eyebrow">02 / Connected to the work</p>
             <h2 className="section-title" id="skills-heading">Practice with <em>context.</em></h2>
           </div>
           <Link className="text-link" href="/projects">Explore the projects <span aria-hidden="true">↗</span></Link>
@@ -29,14 +39,13 @@ export default function SkillsPage() {
       <section className="info-section" aria-labelledby="learning-heading">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">02 / Still learning</p>
+            <p className="eyebrow">03 / Study in progress</p>
             <h2 className="section-title" id="learning-heading">The next <em>layer.</em></h2>
           </div>
         </div>
-        <p>The support and networking entries describe training-lab topics. Personal exercise records and verified outcomes will give those topics more detail as the lab progresses.</p>
-        <Placeholder title="Learning goals & completed exercises">
-          Add current learning priorities, completed lab tickets, and links to reviewed evidence. Add cybersecurity capabilities when there is corresponding work to show.
-        </Placeholder>
+        <div className="credential-grid">{profile.training.map(entry => <CredentialCard key={entry.title} entry={entry} status="in-progress" />)}</div>
+        <h3 className="learning-goals-heading">Current learning goals</h3>
+        <ul className="learning-goals">{profile.learningGoals.map(goal => <li key={goal}>{goal}</li>)}</ul>
       </section>
     </div>
   );

@@ -4,13 +4,13 @@
  */
 export const site = {
   name: "Alexander Nicholas",
-  role: "Software & IT projects",
+  role: "IT Support Candidate",
   /** Shown under the hero heading. */
   tagline:
-    "I build software and explore how systems work through practical IT labs, troubleshooting, and carefully documented projects.",
+    "CompTIA A+ certified computer science graduate pursuing IT support and help desk roles, with hands-on systems and networking lab experience.",
   /** Shown in the About section. */
   about:
-    "I’m Alexander. I enjoy turning a complex problem into something clear, useful, and carefully made. My projects span software development, machine learning, and practical IT learning, with a growing interest in networking and security.",
+    "I’m Alexander, a computer science graduate and CompTIA A+ certified IT support candidate. My background combines quality assurance at Pfizer, instructional support at CSUSM, and a personal lab with Windows Server, Linux, virtual machines, and VLAN segmentation. I’m pursuing support and help desk opportunities while developing a foundation in networking and cybersecurity.",
   email: "alexandersnicholas0203@gmail.com",
   /** Used for metadata and canonical URLs. */
   url: "https://nicholas-alexander-portfolio.biggestnumber090.chatgpt.site",

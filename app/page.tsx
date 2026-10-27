@@ -36,6 +36,7 @@ export default function HomePage() {
         <div className="overview-grid">{profile.overview.map((fact, index) => (
           <article className="overview-card" data-tone={index % 3} key={fact.label}>
             <p className="eyebrow">{fact.label}</p><h3>{fact.value}</h3><p className="overview-detail">{fact.detail}</p>
+            {fact.href ? <a className="text-link overview-credential" href={fact.href} target="_blank" rel="noopener noreferrer">{fact.linkLabel ?? "View details"}<span aria-hidden="true">↗</span></a> : null}
             {fact.pending ? <span className="placeholder-label">Details placeholder</span> : null}
           </article>
         ))}</div>

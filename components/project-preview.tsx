@@ -55,11 +55,11 @@ export function ProjectPreview({ project }: { project: Project }) {
     return (
       <div className="project-preview preview-emotion">
         <div className="preview-topline"><span className="preview-brand">Beyond pixels<span className="brand-dot" /></span><span className="micro-label">Model pipeline</span></div>
-        <p className="preview-headline">Finding patterns.<br />Reading expression.</p>
-        <div className="model-pipeline" aria-label="68 facial landmarks feed engineered features into models that classify seven emotion labels">
-          <div className="pipeline-input"><strong>68</strong><span>facial landmarks</span></div><span className="pipeline-arrow" aria-hidden="true">→</span><div className="pipeline-output"><strong>7</strong><span>emotion labels</span></div>
+        <p className="preview-headline">Testing models.<br />Questioning results.</p>
+        <div className="model-pipeline" aria-label="25 engineered geometric features feed models that classify seven facial-expression labels">
+          <div className="pipeline-input"><strong>25</strong><span>geometric features</span></div><span className="pipeline-arrow" aria-hidden="true">→</span><div className="pipeline-output"><strong>7</strong><span>expression labels</span></div>
         </div>
-        <div className="preview-bottomline"><span>Logistic regression</span><span>Decision tree</span><span>MLP</span></div>
+        <div className="preview-bottomline"><span>SVM</span><span>Decision tree</span><span>PyTorch MLP</span></div>
       </div>
     );
   }

@@ -62,18 +62,19 @@ export const projects: Project[] = [
   },
   {
     slug: "facial-emotion-recognition",
-    title: "Facial Emotion Recognition",
-    category: "Machine learning · Computer vision",
+    title: "Facial Expression Classification",
+    category: "Machine learning · Reproducible benchmark",
     theme: "lilac",
     summary:
-      "A machine-learning project that recognizes emotions from facial-landmark geometry, comparing interpretable models with a neural-network benchmark.",
+      "A reproducible comparison of SVM, decision-tree, and PyTorch MLP classifiers using 25 geometric features, with an evaluation of how related frames affect the results.",
     body: [
-      "Built with a three-person team, this project evaluates whether lightweight, landmark-based features can classify seven facial emotions without relying on raw-image classification or deep CNNs. The dataset contains more than 35,000 labeled 48×48 grayscale images.",
-      "I implemented model code as well as facial-landmark extraction, feature engineering, and data cleanup. The pipeline detects faces, derives distances, angles, and ratios from 68 landmarks, standardizes the resulting features, and evaluates Logistic Regression, Decision Tree, and MLP models with cross-validation and classification metrics.",
+      "Originally completed by a three-person CS 471 team in May 2025, this project classifies seven visible facial-expression labels using geometric features. The current portfolio benchmark uses 981 CK+-derived samples and 25 corrected features regenerated from stored MediaPipe landmarks.",
+      "My original contributions included the SVM implementation and GridSearchCV tuning, data and feature engineering, visualizations, code consolidation, report, and slides. The later portfolio revision, developed with Codex assistance, adds corrected features, reproducible evaluation, and generated reports.",
+      "The benchmark compares a stratified image-level split with a sensitivity analysis that keeps inferred groups of related frames together. Neither protocol establishes performance on unseen people, and the current package does not independently reproduce raw-image-to-prediction inference.",
     ],
-    stack: ["Python", "scikit-learn", "OpenCV", "face_recognition"],
+    stack: ["Python", "scikit-learn", "PyTorch", "pandas", "MediaPipe Landmarks"],
     year: 2025,
-    repo: "https://github.com/leeflesstree/cs471Final",
+    repo: "https://github.com/leeflesstree/cs471Final/tree/portfolio/reproducible-benchmark",
   },
   {
     slug: "portfolio-website",

@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Placeholder } from "@/components/placeholder";
 import { profile } from "@/lib/profile";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Résumé",
-  description: "A brief introduction to Alexander Nicholas, with contact details and a space for the current résumé.",
+  description: "Download Alexander Nicholas’s résumé and explore his IT support, systems, networking, and software background.",
 };
 
 export default function ResumePage() {
   return (
     <div className="profile-page">
       <header className="page-intro">
-        <p className="eyebrow">A quick introduction</p>
+        <p className="eyebrow">IT support · Systems & networking</p>
         <h1>The <em>essentials.</em></h1>
-        <p>My background, technical interests, and a direct way to get in touch.</p>
+        <p>My experience, education, and technical foundation, with the résumé ready to download.</p>
       </header>
       <section className="resume-panel" aria-labelledby="resume-name">
         <div>
@@ -32,9 +31,13 @@ export default function ResumePage() {
             ))}
           </div>
         </div>
-        <Placeholder title="Current résumé PDF">
-          Add the reviewed résumé file here. The download will be available once the document and its education, experience, and contact details are confirmed.
-        </Placeholder>
+        <div className="resume-download">
+          <p className="eyebrow">Current résumé / PDF</p>
+          <h3>Experience at a glance.</h3>
+          <p>A downloadable overview of my background, qualifications, and technical work.</p>
+          <a className="pill-link" href={profile.resume.href} download="Alexander-Nicholas-Resume.pdf" type="application/pdf">Download résumé (PDF) <span aria-hidden="true">↓</span></a>
+          <a className="text-link" href={profile.resume.href} type="application/pdf" target="_blank" rel="noopener noreferrer">View PDF <span className="sr-only">in a new tab</span><span aria-hidden="true">↗</span></a>
+        </div>
       </section>
       <section className="info-section" aria-labelledby="resume-explore-heading">
         <div className="section-heading">

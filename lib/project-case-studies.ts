@@ -199,59 +199,86 @@ export const caseStudies: Record<string, ProjectCaseStudy> = {
     ],
   },
   "facial-emotion-recognition": {
-    status: "Academic project",
-    role: "Model implementation and feature engineering · team of three",
-    focus: "Facial-landmark features and model comparison",
+    status: "Reproducible benchmark",
+    role: "SVM implementation, tuning, and feature engineering · team of three; later benchmark revision with Codex assistance",
+    focus: "Reproducible model evaluation and related-frame sensitivity",
     takeaway:
-      "A landmark-based pipeline compares Logistic Regression, Decision Tree, and MLP models across seven emotion labels.",
+      "SVM test macro F1 changes from 0.9897 with image splitting to 0.6230 with inferred frame groups kept together, highlighting the importance of evaluation design.",
     environment: [
-      { label: "Tools", value: "Python · scikit-learn · OpenCV · face_recognition" },
-      { label: "Dataset", value: "35,000+ labeled 48 × 48 grayscale images" },
-      { label: "Features", value: "Distances, angles, and ratios from 68 landmarks" },
-      { label: "Evaluation", value: "Cross-validation and classification metrics" },
+      { label: "Tools", value: "Python 3.12 · scikit-learn · imbalanced-learn · PyTorch · pandas" },
+      { label: "Dataset", value: "981 CK+-derived samples across seven expression labels" },
+      { label: "Features", value: "25 corrected geometric features from stored MediaPipe 468-point x/y landmarks" },
+      { label: "Image split", value: "686 training / 147 validation / 148 test samples · seed 42" },
+      { label: "Grouped split", value: "684 training / 147 validation / 150 test samples · 327 inferred groups of three" },
+      { label: "Source version", value: "Portfolio benchmark commit 7867d66 · October 13, 2026" },
     ],
     sections: [
       {
         id: "contribution",
         title: "My contribution",
         body: [
-          "I implemented model code, facial-landmark extraction, feature engineering, and data cleanup as part of a three-person team.",
+          "In the original team project, I implemented the SVM in scikit-learn and tuned it with GridSearchCV. I also contributed data and feature engineering, visualizations, code consolidation, the report, and slides. The other team members implemented the decision tree and PyTorch MLP.",
+          "I subsequently revised the portfolio version with Codex assistance: correcting feature formulas, packaging a reproducible benchmark, keeping preprocessing inside cross-validation, adding an inferred-group sensitivity analysis, and producing consistent reports. The repository preserves the original coursework and its separate team attribution.",
         ],
       },
       {
         id: "decisions",
-        title: "Modeling approach",
+        title: "Features and evaluation design",
         body: [
-          "The project represents facial geometry with distances, angles, and ratios rather than classifying raw images with a deep CNN. Features are standardized before model evaluation.",
-          "Logistic Regression and Decision Tree models provide interpretable comparisons, with an MLP as a neural-network benchmark.",
+          "The runnable benchmark starts from a corrected feature table, not raw images. Its 25 distances, ratios, angles, and symmetry measurements can be regenerated from the committed MediaPipe landmarks. The revision corrects double-normalized aspect ratios, normalizes symmetry offsets, and aligns landmark formulas with the feature names.",
+          "Decision-tree and SVM model selection uses five training-only cross-validation folds, with scaling and any SMOTE resampling fitted inside each fold. The seeded PyTorch MLP uses validation macro F1 for tuning and checkpoint selection. Macro F1 gives each expression class equal weight; the test split remains separate from model selection.",
+          "The second protocol keeps candidate groups of three frames together in both splitting and cross-validation. Those groups are inferred from expression labels, filename indices, and feature similarity; they are not verified original sequences or subject identities.",
         ],
       },
       {
         id: "verification",
-        title: "Evaluation and results",
+        title: "Recorded benchmark results",
         body: [
-          "The pipeline evaluates seven emotion labels with cross-validation and classification metrics.",
+          "The committed reports use the same corrected 981-sample dataset and seed 42. On the stratified image split, test macro F1 is 0.0584 for the majority baseline, 0.8105 for the decision tree, 0.9897 for the SVM, and 0.9632 for the PyTorch MLP.",
+          "With inferred frame groups kept together, test macro F1 is 0.0590 for the baseline, 0.4664 for the decision tree, 0.6230 for the SVM, and 0.6570 for the MLP. The image-level split shares 127 candidate groups between training and test; the grouped run keeps those candidate groups together and tunes models under its own protocol.",
+          "These values are the saved outputs of the linked portfolio benchmark. Its metrics, split manifests, predictions, per-class reports, and confusion matrices make the comparison inspectable. The two protocols use different test memberships, so the score gap is a sensitivity comparison rather than a causal estimate on identical test images.",
         ],
-        placeholder:
-          "Add the final model comparison, evaluation setup, and confusion matrix from the project report.",
       },
       {
         id: "lessons",
         title: "Lessons and limitations",
-        body: [],
-        placeholder:
-          "Add an observed feature or data-quality limitation, how you investigated it, and what you would improve.",
+        body: [
+          "The central lesson is that evaluation design can matter as much as model choice. High image-split scores should not be presented as evidence that a model generalizes to new people when closely related frames may cross split boundaries.",
+          "The archive has no verified subject identifiers or original sequence mapping, and raw source images are absent. Neither protocol is a subject-disjoint evaluation or an independently reproduced image-to-prediction system. These are retrospective experiments on a small, controlled, imbalanced dataset that was already explored during the coursework.",
+          "The labels describe visible facial expressions, not a person’s internal emotional state. Stronger generalization claims would require appropriate source-image access, trustworthy subject and sequence metadata, and an independent evaluation dataset.",
+        ],
       },
     ],
     evidence: [
       {
-        title: "Project repository",
-        description: "Source for the team’s facial emotion recognition project.",
-        href: "https://github.com/leeflesstree/cs471Final",
+        title: "Benchmark source and documentation",
+        description: "The requested reproducible-benchmark branch, including the package, notebook entry point, and coursework archive.",
+        href: "https://github.com/leeflesstree/cs471Final/tree/portfolio/reproducible-benchmark",
       },
       {
-        title: "Model comparison pending",
-        description: "Final metrics, a confusion matrix, and interpretation of the results.",
+        title: "Model comparison and evaluation protocols",
+        description: "Recorded image-level and inferred-group results, split sizes, model-selection procedure, and interpretation.",
+        href: "https://github.com/leeflesstree/cs471Final/blob/7867d6666221199c836da16a188e181b93cc846e/docs/results.md",
+      },
+      {
+        title: "Image-split metrics JSON",
+        description: "Machine-readable scores, selected parameters, per-class reports, environment versions, and seed.",
+        href: "https://github.com/leeflesstree/cs471Final/blob/7867d6666221199c836da16a188e181b93cc846e/results/metrics.json",
+      },
+      {
+        title: "Inferred-group metrics JSON",
+        description: "The corresponding grouped sensitivity run, including test scores and per-class reports.",
+        href: "https://github.com/leeflesstree/cs471Final/blob/7867d6666221199c836da16a188e181b93cc846e/results/inferred_sequence/metrics.json",
+      },
+      {
+        title: "Feature provenance and limitations",
+        description: "Corrected feature definitions, the 981-row dataset, inferred-frame evidence, and limits on generalization.",
+        href: "https://github.com/leeflesstree/cs471Final/blob/7867d6666221199c836da16a188e181b93cc846e/docs/data.md",
+      },
+      {
+        title: "Coursework history and contributions",
+        description: "Original team attribution and the distinction between historical coursework and later portfolio improvements.",
+        href: "https://github.com/leeflesstree/cs471Final/blob/7867d6666221199c836da16a188e181b93cc846e/docs/coursework.md",
       },
     ],
   },
