@@ -66,8 +66,8 @@ export function ProjectPreview({ project }: { project: Project }) {
   return (
     <div className="project-preview preview-portfolio">
       <div className="preview-topline"><span className="preview-brand">Alexander Nicholas.</span><span className="micro-label">Portfolio study</span></div>
-      <p className="preview-portfolio-title">Built to<br />be <em>felt.</em></p>
-      <div className="preview-bottomline"><span>Thoughtful software.</span><span>A little more life.</span></div>
+      <p className="preview-portfolio-title">Support,<br />with a <em>method.</em></p>
+      <div className="preview-bottomline"><span>Typed content.</span><span>Responsive by default.</span></div>
     </div>
   );
 }

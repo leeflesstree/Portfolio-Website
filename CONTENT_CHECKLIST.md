@@ -60,3 +60,11 @@ These checks used the local static export. A temporary preview server handled th
 - Résumé HTTP response and browser download match the reviewed one-page PDF copy by SHA-256. Original user files were not changed.
 - HTML source excludes the résumé phone number, certificate candidate ID, certificate verification code, and private source paths. The certificate PDF is not in public assets.
 - No browser runtime errors or failed local page/asset responses occurred. External credential links were checked for correct destinations, not independently fetched from the issuer.
+
+## Quick-wins update verification — 2026-10-29
+
+- Placeholders (pending sections, pending evidence, and pending contribution rows) appear in `npm run dev` and are omitted from the production build; set `NEXT_PUBLIC_SHOW_PLACEHOLDERS=true` to include them. Built project pages contain no placeholder labels.
+- Projects now follow the array order in `lib/projects.ts` (IT Support Lab, Facial Expression Classification, MC Schematic, Personal Portfolio, RollRoute) instead of year.
+- Headshot served as an 860 px WebP (about 41 KB) in place of the 2 MB PNG. Added `icon.svg`, `sitemap.xml`, `robots.txt`, a static Open Graph image, and Person structured data.
+- Production build and ESLint passed. Homepage and project index checked at desktop and 375 px with no horizontal overflow; current-page navigation state confirmed.
+- Automated text-contrast scan of ten routes found no pairs below WCAG AA in light or dark mode. This is not a full accessibility audit; production deployment was not changed.

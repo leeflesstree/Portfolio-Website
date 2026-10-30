@@ -14,12 +14,23 @@ export default function HomePage() {
     ...getAllProjects().filter(project => !featured.some(item => item.slug === project.slug)),
     ...spotlights,
   ];
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    url: site.url,
+    email: `mailto:${site.email}`,
+    description: site.tagline,
+    alumniOf: { "@type": "CollegeOrUniversity", name: "California State University San Marcos" },
+    sameAs: site.socials.map(social => social.href),
+  };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
       <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> {site.name} / {site.role}</p>
-          <h1 id="hero-heading">Built to<br />be <em>felt.</em></h1>
+          <h1 id="hero-heading">Support,<br />with a <em>method.</em></h1>
           <div className="hero-summary">
             {profile.homeSummary.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
           </div>
@@ -58,7 +69,7 @@ export default function HomePage() {
       </section>
       <section className="contact-section" id="contact" aria-labelledby="contact-heading">
         <p className="eyebrow">02 / Let’s connect</p>
-        <a className="contact-title" href={`mailto:${site.email}`}><h2 id="contact-heading">Let’s make<br />something <em>matter.</em></h2><span className="contact-arrow" aria-hidden="true">↗</span></a>
+        <a className="contact-title" href={`mailto:${site.email}`}><h2 id="contact-heading">Let’s solve<br />the next <em>ticket.</em></h2><span className="contact-arrow" aria-hidden="true">↗</span></a>
         <div className="contact-bottom"><a className="text-link email-link" href={`mailto:${site.email}`}>{site.email}</a><p>Open to good conversations and new opportunities.</p></div>
       </section>
     </>

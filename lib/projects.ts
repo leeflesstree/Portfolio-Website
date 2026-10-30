@@ -13,38 +13,8 @@ export type Project = {
   demo?: string;
 };
 
-/** Projects shown across the portfolio. */
+/** Projects in display order: most relevant to IT support roles first. */
 export const projects: Project[] = [
-  {
-    slug: "rollroute",
-    title: "RollRoute",
-    category: "Product concept · Accessibility",
-    theme: "sage",
-    summary:
-      "An accessible navigation app that makes curb cuts, step-free entrances, elevator outages, and surface conditions part of route planning.",
-    body: [
-      "RollRoute is a wheelchair-friendly navigation app built around a simple premise: the shortest route is not always an accessible one. It treats real mobility constraints as first-class routing data rather than an afterthought.",
-      "The concept combines accessible route planning with crowdsourced accessibility pins, venue snapshots, and a Scout Mode heatmap that helps surface both well-documented and under-mapped areas.",
-    ],
-    stack: ["Accessible Navigation", "Routing", "Community Mapping"],
-    year: 2026,
-  },
-  {
-    slug: "mc-schematic",
-    title: "MC Schematic",
-    category: "Minecraft tooling · In progress",
-    theme: "sage",
-    summary:
-      "An offline Minecraft schematic viewer for exploring build layers, inspecting block states, and planning materials without uploading files.",
-    body: [
-      "MC Schematic makes a Minecraft build easier to inspect before placing the first block. The current browser-based viewer reads Sponge .schem versions 2 and 3 locally, decodes palettes and block states, and presents dimensions, material counts, and textured horizontal layers.",
-      "A searchable material list and keyboard-accessible tile inspection connect each block to its local coordinates and properties. Bundled textures keep the viewer offline, with no account, external dependencies, or schematic uploads. Parser and texture-mapping tests cover the core decoding workflow.",
-      "This is an in-progress project. The current implementation is a top-down material viewer, not a geometry-accurate 3D blueprint or an AI generator; 3D viewing and additional schematic formats are future work.",
-    ],
-    stack: ["JavaScript", "HTML", "CSS", "NBT Parsing", "Node.js Tests"],
-    year: 2026,
-    repo: "https://github.com/leeflesstree/mc-schematic-starter",
-  },
   {
     slug: "it-support-lab",
     title: "Small Office IT Support Lab",
@@ -77,6 +47,22 @@ export const projects: Project[] = [
     repo: "https://github.com/leeflesstree/cs471Final/tree/portfolio/reproducible-benchmark",
   },
   {
+    slug: "mc-schematic",
+    title: "MC Schematic",
+    category: "Minecraft tooling · In progress",
+    theme: "sage",
+    summary:
+      "An offline Minecraft schematic viewer for exploring build layers, inspecting block states, and planning materials without uploading files.",
+    body: [
+      "MC Schematic makes a Minecraft build easier to inspect before placing the first block. The current browser-based viewer reads Sponge .schem versions 2 and 3 locally, decodes palettes and block states, and presents dimensions, material counts, and textured horizontal layers.",
+      "A searchable material list and keyboard-accessible tile inspection connect each block to its local coordinates and properties. Bundled textures keep the viewer offline, with no account, external dependencies, or schematic uploads. Parser and texture-mapping tests cover the core decoding workflow.",
+      "This is an in-progress project. The current implementation is a top-down material viewer, not a geometry-accurate 3D blueprint or an AI generator; 3D viewing and additional schematic formats are future work.",
+    ],
+    stack: ["JavaScript", "HTML", "CSS", "NBT Parsing", "Node.js Tests"],
+    year: 2026,
+    repo: "https://github.com/leeflesstree/mc-schematic-starter",
+  },
+  {
     slug: "portfolio-website",
     title: "Personal Portfolio",
     category: "Web development · Interaction",
@@ -91,11 +77,24 @@ export const projects: Project[] = [
     year: 2026,
     repo: "https://github.com/leeflesstree/Portfolio-Website",
   },
+  {
+    slug: "rollroute",
+    title: "RollRoute",
+    category: "Product concept · Accessibility",
+    theme: "sage",
+    summary:
+      "An accessible navigation app that makes curb cuts, step-free entrances, elevator outages, and surface conditions part of route planning.",
+    body: [
+      "RollRoute is a wheelchair-friendly navigation app built around a simple premise: the shortest route is not always an accessible one. It treats real mobility constraints as first-class routing data rather than an afterthought.",
+      "The concept combines accessible route planning with crowdsourced accessibility pins, venue snapshots, and a Scout Mode heatmap that helps surface both well-documented and under-mapped areas.",
+    ],
+    stack: ["Accessible Navigation", "Routing", "Community Mapping"],
+    year: 2026,
+  },
 ];
 
-/** Newest first. */
 export function getAllProjects(): Project[] {
-  return [...projects].sort((a, b) => b.year - a.year);
+  return [...projects];
 }
 
 export function getFeaturedProjects(): Project[] {
