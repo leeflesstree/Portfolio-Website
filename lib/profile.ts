@@ -35,7 +35,7 @@ export type Profile = {
 /** Personal details confirmed against the supplied résumé, certificate, and LinkedIn profile. */
 export const profile: Profile = {
   headshot: {
-    src: "/images/alexander-nicholas.png",
+    src: "/images/alexander-nicholas.webp",
     alt: "Portrait of Alexander Nicholas",
   },
   resume: {

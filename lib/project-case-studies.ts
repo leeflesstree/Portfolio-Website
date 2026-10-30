@@ -14,6 +14,26 @@ export type ProjectCaseStudy = {
   evidence: { title: string; description: string; href?: string }[];
 };
 
+/**
+ * Placeholders are editing notes. They appear in `next dev` and are left out of
+ * the published build unless NEXT_PUBLIC_SHOW_PLACEHOLDERS is "true".
+ */
+export const showPlaceholders =
+  process.env.NODE_ENV !== "production" || process.env.NEXT_PUBLIC_SHOW_PLACEHOLDERS === "true";
+
+/** A case study without its pending sections and evidence when placeholders are hidden. */
+export function getCaseStudy(slug: string): ProjectCaseStudy | undefined {
+  const study = caseStudies[slug];
+  if (!study || showPlaceholders) return study;
+  return {
+    ...study,
+    sections: study.sections
+      .filter(section => section.body.length > 0)
+      .map(section => ({ ...section, placeholder: undefined })),
+    evidence: study.evidence.filter(item => item.href),
+  };
+}
+
 /** Case-study content separates documented project scope from personal evidence. */
 export const caseStudies: Record<string, ProjectCaseStudy> = {
   "it-support-lab": {

@@ -1,3 +1,5 @@
 # Keep public documents and images byte-for-byte on every checkout.
 /public/documents/*.pdf binary
 /public/images/*.png binary
+/public/images/*.webp binary
+/app/opengraph-image.png binary

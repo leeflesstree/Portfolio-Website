@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { navItems, site } from "@/lib/site";
+import { NavLinks } from "@/components/nav-links";
+import { site } from "@/lib/site";
 
 export function SiteHeader() {
   return (
@@ -8,16 +9,7 @@ export function SiteHeader() {
         <Link href="/" className="wordmark">
           {site.name}<span className="wordmark-period">.</span>
         </Link>
-        <ul className="nav-links">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href}>
-                {item.label}
-                {item.label === "Contact" && <span aria-hidden="true"> ↗</span>}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <NavLinks />
       </nav>
     </header>
   );
