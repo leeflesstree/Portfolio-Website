@@ -122,13 +122,13 @@ export function MotionGallery({ projects, autoRotate = false }: { projects: Proj
         <div className="gallery-layer gallery-layer-middle" aria-hidden="true" />
         <div className="gallery-front" id="gallery-preview" role="group" aria-roledescription="slide" aria-label={`${currentIndex + 1} of ${projectCount}: ${project.title}`}>
           <div className="gallery-preview-enter" key={project.slug}><ProjectPreview project={project} /></div>
-          <Link className="gallery-open" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}><span>Explore the project</span><span aria-hidden="true">↗</span></Link>
+          <Link className="gallery-open" href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}>Explore the project</Link>
         </div>
       </div>
-      <p className="gallery-caption"><span className="eyebrow">Collection / {String(currentIndex + 1).padStart(2, "0")}</span><span>{project.title}</span></p>
+      <p className="gallery-caption">{project.title}</p>
       <div className="gallery-controls">
         <div className="gallery-picker" role="group" aria-label="Choose a project">
-          {projects.map((item, index) => <button key={item.slug} type="button" aria-label={`Show ${item.title}`} aria-pressed={index === currentIndex} aria-controls="gallery-preview" onClick={() => selectProject(index)}>{String(index + 1).padStart(2, "0")}</button>)}
+          {projects.map((item, index) => <button key={item.slug} type="button" aria-label={`Show ${item.title}`} aria-pressed={index === currentIndex} aria-controls="gallery-preview" onClick={() => selectProject(index)}>{index + 1}</button>)}
         </div>
         <div className="gallery-transport">
           <button className="depth-button" type="button" aria-pressed={flat} onClick={() => { resetTilt(); setFlat(value => !value); }}><span className="layers-symbol" aria-hidden="true">◇</span>{flat ? "Bring back the depth" : "Flatten the layers"}</button>

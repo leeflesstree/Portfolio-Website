@@ -7,7 +7,7 @@ export function SiteHeader() {
     <header className="site-header">
       <nav className="site-container header-inner" aria-label="Main navigation">
         <Link href="/" className="wordmark">
-          {site.name}<span className="wordmark-period">.</span>
+          {site.name}
         </Link>
         <NavLinks />
       </nav>

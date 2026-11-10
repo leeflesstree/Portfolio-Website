@@ -29,7 +29,6 @@ export type Profile = {
   certifications: BackgroundEntry[];
   training: BackgroundEntry[];
   homeLab: BackgroundEntry;
-  learningGoals: string[];
 };
 
 /** Personal details confirmed against the supplied résumé, certificate, and LinkedIn profile. */
@@ -142,10 +141,6 @@ export const profile: Profile = {
       "Used OSI-based troubleshooting and documented the lab setup and diagnostic process.",
     ],
   },
-  learningGoals: [
-    "Prepare for CompTIA Network+ certification.",
-    "Prepare for CompTIA Security+ certification.",
-  ],
 };
 
 export type SkillGroup = {

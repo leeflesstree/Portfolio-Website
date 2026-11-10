@@ -68,3 +68,11 @@ These checks used the local static export. A temporary preview server handled th
 - Headshot served as an 860 px WebP (about 41 KB) in place of the 2 MB PNG. Added `icon.svg`, `sitemap.xml`, `robots.txt`, a static Open Graph image, and Person structured data.
 - Production build and ESLint passed. Homepage and project index checked at desktop and 375 px with no horizontal overflow; current-page navigation state confirmed.
 - Automated text-contrast scan of ten routes found no pairs below WCAG AA in light or dark mode. This is not a full accessibility audit; production deployment was not changed.
+
+## Design audit — 2026-11-10
+
+- Removed the patterns listed in `AI_DESIGN_HELP.txt`: uppercase monospace labels above headings, section numbering, the single italic serif word and trailing period in each heading, status pills, tag pills, arrows on internal links (↗ now only marks links that leave the site), most card borders and section dividers, the rotating card tints, and the scroll fade-in on project cards.
+- Headings now name their content (Education, Experience, Skills in context). The homepage headline is "IT support, with a method". Geist Mono and Georgia are no longer loaded; the site uses Geist only.
+- The email address is the primary contact button. Buttons use the accent green and scale to 0.97 on press.
+- Fixed: bullet lists on Background had no markers (Tailwind reset), project cards in a row had unequal heights, text under 12 px, repeated takeaway text on project cards, and the learning-goals list that duplicated the study cards.
+- ESLint, TypeScript, and the production build passed. Ten routes checked at 320, 390, 820, 1000, and 1440 px with one page heading each and no horizontal overflow; homepage reviewed in mobile dark mode. Not a full accessibility audit; production deployment was not changed.

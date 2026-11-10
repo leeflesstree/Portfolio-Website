@@ -7,7 +7,6 @@ export function CredentialCard({ entry, status = "earned" }: { entry: Background
     <article className="credential-card" data-status={status}>
       <span className="credential-mark" aria-hidden="true">{earned ? (entry.title.includes("A+") ? "A+" : "✓") : "→"}</span>
       <div className="credential-copy">
-        <p className="eyebrow">{earned ? "Earned certification" : "Study in progress"}</p>
         <h3>{entry.title}</h3>
         {entry.organization ? <p className="credential-organization">{entry.organization}</p> : null}
         {entry.period ? <p className="background-entry-meta">{entry.period}</p> : null}

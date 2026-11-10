@@ -19,7 +19,6 @@ export function NavLinks() {
         <li key={item.href}>
           <Link href={item.href} aria-current={isCurrent(pathname, item.href) ? "page" : undefined}>
             {item.label}
-            {item.label === "Contact" && <span aria-hidden="true"> ↗</span>}
           </Link>
         </li>
       ))}

@@ -29,23 +29,22 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }} />
       <section className="hero" aria-labelledby="hero-heading">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="status-dot" /> {site.name} / {site.role}</p>
-          <h1 id="hero-heading">Support,<br />with a <em>method.</em></h1>
+          <h1 id="hero-heading">IT support, with a method</h1>
           <div className="hero-summary">
             {profile.homeSummary.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
           </div>
           <div className="hero-actions">
-            <a className="pill-link primary-pill" href="#work">Explore my projects <span aria-hidden="true">↗</span></a>
-            <Link className="pill-link" href="/resume">Résumé <span aria-hidden="true">↘</span></Link>
+            <a className="pill-link primary-pill" href="#work">Explore my projects</a>
+            <Link className="pill-link" href="/resume">Résumé</Link>
           </div>
           <div className="hero-socials">{site.socials.map(social => <a key={social.href} className="text-link" href={social.href} target="_blank" rel="noreferrer">{social.label}<span aria-hidden="true">↗</span></a>)}</div>
         </div>
         <Headshot />
       </section>
       <section className="overview-section" aria-labelledby="overview-heading">
-        <div className="overview-heading"><h2 id="overview-heading" className="eyebrow">At a glance</h2><Link className="text-link" href="/background">The full background <span aria-hidden="true">↗</span></Link></div>
-        <div className="overview-grid">{profile.overview.map((fact, index) => (
-          <article className="overview-card" data-tone={index % 3} key={fact.label}>
+        <div className="overview-heading"><h2 id="overview-heading" className="eyebrow">At a glance</h2><Link className="text-link" href="/background">The full background</Link></div>
+        <div className="overview-grid">{profile.overview.map(fact => (
+          <article className="overview-card" key={fact.label}>
             <p className="eyebrow">{fact.label}</p><h3>{fact.value}</h3><p className="overview-detail">{fact.detail}</p>
             {fact.href ? <a className="text-link overview-credential" href={fact.href} target="_blank" rel="noopener noreferrer">{fact.linkLabel ?? "View details"}<span aria-hidden="true">↗</span></a> : null}
             {fact.pending ? <span className="placeholder-label">Details placeholder</span> : null}
@@ -54,23 +53,21 @@ export default function HomePage() {
       </section>
       <section className="work-section home-showcase" id="work" aria-labelledby="work-heading">
         <div className="section-heading">
-          <div><p className="eyebrow">01 / A look at the work</p><h2 id="work-heading">Projects, in <em>motion.</em></h2></div>
-          <Link className="text-link" href="/projects">All projects <span aria-hidden="true">↗</span></Link>
+          <h2 id="work-heading">Selected projects</h2>
+          <Link className="text-link" href="/projects">All projects</Link>
         </div>
         <div className="project-showcase">
           <div className="showcase-deck"><MotionGallery projects={galleryProjects} autoRotate /></div>
           <div className="showcase-highlights">
-            <p className="eyebrow">Two to start with</p>
             <ul className="project-spotlights">
-              {spotlights.map((project, index) => <ProjectSpotlight key={project.slug} project={project} index={index} />)}
+              {spotlights.map(project => <ProjectSpotlight key={project.slug} project={project} />)}
             </ul>
           </div>
         </div>
       </section>
       <section className="contact-section" id="contact" aria-labelledby="contact-heading">
-        <p className="eyebrow">02 / Let’s connect</p>
-        <a className="contact-title" href={`mailto:${site.email}`}><h2 id="contact-heading">Let’s solve<br />the next <em>ticket.</em></h2><span className="contact-arrow" aria-hidden="true">↗</span></a>
-        <div className="contact-bottom"><a className="text-link email-link" href={`mailto:${site.email}`}>{site.email}</a><p>Open to good conversations and new opportunities.</p></div>
+        <h2 id="contact-heading">Let’s solve the next ticket</h2>
+        <div className="contact-bottom"><a className="pill-link primary-pill email-link" href={`mailto:${site.email}`}>{site.email}</a><p>Open to good conversations and new opportunities.</p></div>
       </section>
     </>
   );

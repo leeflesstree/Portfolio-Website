@@ -5,9 +5,8 @@ import { getProject } from "@/lib/projects";
 export function SkillGroups() {
   return (
     <div className="skill-groups">
-      {skillGroups.map((group, groupIndex) => (
+      {skillGroups.map(group => (
         <section className="skill-group" key={group.id} aria-labelledby={`skills-${group.id}`}>
-          <p className="eyebrow">{String(groupIndex + 1).padStart(2, "0")} / Experience & projects</p>
           <h3 id={`skills-${group.id}`}>{group.title}</h3>
           <p>{group.description}</p>
           <ul className="skill-items">
@@ -19,12 +18,12 @@ export function SkillGroups() {
                   <p className="skill-context">{item.context}</p>
                   {project ? (
                     <Link className="skills-link" href={`/projects/${project.slug}`}>
-                      {project.title} <span aria-hidden="true">↗</span>
+                      {project.title}
                     </Link>
                   ) : null}
                   {item.href ? (
                     item.href.startsWith("/") || item.href.startsWith("#") ? (
-                      <Link className="skills-link" href={item.href}>{item.linkLabel ?? "See the context"} <span aria-hidden="true">↗</span></Link>
+                      <Link className="skills-link" href={item.href}>{item.linkLabel ?? "See the context"}</Link>
                     ) : (
                       <a className="skills-link" href={item.href} target="_blank" rel="noopener noreferrer">{item.linkLabel ?? "See the context"} <span aria-hidden="true">↗</span></a>
                     )
